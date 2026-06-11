@@ -1,0 +1,11 @@
+{
+  "headline_ratio": 939.7859187901846,
+  "headline_active_cfl_number": 10.761689254944063,
+  "headline_active_max_energy": 9.616203882786222e+16,
+  "headline_aggregated_max_energy": 1.0,
+  "wave_energy_drift": 1.192379528447418e-13,
+  "advection_ke_drift": 1.589173237448449e-12,
+  "advection_skew_residual": 0.0,
+  "max_time_step_relief": 49391.4931567732,
+  "max_ratio_in_sweep": 4971467510.395224
+}
