@@ -1,0 +1,35 @@
+{
+  "n_cases": 25,
+  "backend_values": [
+    "cpu"
+  ],
+  "degree_values": [
+    4
+  ],
+  "n_elements_values": [
+    8,
+    12,
+    16,
+    24,
+    32
+  ],
+  "volume_ratio_range": [
+    10.0,
+    99999.99999999999
+  ],
+  "all_converged": true,
+  "iteration_range": [
+    104,
+    188
+  ],
+  "solve_time_s_range": [
+    0.0010056460014311597,
+    0.00718569500168087
+  ],
+  "assembly_time_s_range": [
+    0.24579939000250306,
+    5.127850139004295
+  ],
+  "max_relative_residual": 9.895855795129992e-09,
+  "max_csr_memory_mb": 1.139452
+}
