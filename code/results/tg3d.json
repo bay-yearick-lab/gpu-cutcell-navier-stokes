@@ -1,0 +1,42 @@
+{
+  "p": 2,
+  "n_elements": 6,
+  "inviscid": {
+    "volume_fraction": 0.06400000000000002,
+    "ke_relative_drift": 3.10540387908436e-16,
+    "max_divergence_residual": 7.37257477290143e-18,
+    "max_ledger_residual_rel": 3.110225272588645e-16,
+    "max_pressure_work_interior": 8.042147954860463e-18,
+    "n_velocity": 1029,
+    "n_pressure": 343
+  },
+  "viscous": {
+    "nu": 0.02,
+    "ke_decay_match_rel": 0.40540804694748894,
+    "max_divergence_residual": 5.204170427930421e-18
+  },
+  "cut_independence": [
+    {
+      "frac": 0.6,
+      "volume_fraction": 0.06400000000000002,
+      "ke_relative_drift": 3.10540387908436e-16,
+      "max_divergence_residual": 7.37257477290143e-18,
+      "max_pressure_work_interior": 7.77038839734603e-18
+    },
+    {
+      "frac": 0.9,
+      "volume_fraction": 0.0009999999999999994,
+      "ke_relative_drift": 5.461884143400349e-16,
+      "max_divergence_residual": 6.938893903907228e-18,
+      "max_pressure_work_interior": 1.0485613797139181e-17
+    },
+    {
+      "frac": 0.99,
+      "volume_fraction": 1.0000000000000027e-06,
+      "ke_relative_drift": 3.8479998417845586e-16,
+      "max_divergence_residual": 7.806255641895632e-18,
+      "max_pressure_work_interior": 5.725497064488083e-18
+    }
+  ],
+  "seconds": 772.6880712509155
+}
