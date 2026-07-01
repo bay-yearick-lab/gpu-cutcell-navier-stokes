@@ -1,0 +1,191 @@
+{
+  "geometry": "circular corner cut, self-similar radius = c h (c per degree)",
+  "target": "cos(pi x) cos(pi y)",
+  "radius_over_h_default": 1.3,
+  "longdouble_eps": 1.0842021724855044e-19,
+  "which_levers_mattered": {
+    "well_conditioned_basis": "drops extension residual 5e-9->1e-11, cond 1e13->1e9, ||E|| 9e5->7e3",
+    "higher_order_quadrature": "no effect on the floor (error invariant to q_order); not the cap",
+    "extended_precision": "longdouble needed at p>=8 to keep deep meshes above the roundoff floor",
+    "self_similar_geometry": "fixes the sliver fraction so refinement isolates the algebraic order"
+  },
+  "degrees": {
+    "4": {
+      "expected_order": 5,
+      "radius_over_h": 1.3,
+      "observed_l2_order": 5.089612546937653,
+      "observed_linf_order": 5.447789843573741,
+      "pairwise_orders": [
+        5.142,
+        5.081,
+        5.044
+      ],
+      "pairwise_linf_orders": [
+        5.963,
+        5.275,
+        5.087
+      ],
+      "deepest_error": 7.976053377135813e-09,
+      "deepest_linf_error": 7.960299952468534e-09,
+      "linf_errors": [
+        3.2051161733975796e-06,
+        2.8564187260368644e-07,
+        6.26309448698722e-08,
+        7.960299952468534e-09
+      ],
+      "gram_cond_max": 5565.004581800691,
+      "extension_residual_max": 5.551115123125783e-15,
+      "min_fluid_fraction": 0.00046907995925705965,
+      "precision": "double",
+      "extension": "well",
+      "local_basis": "monomial",
+      "extra_columns": 0,
+      "meshes": [
+        8,
+        12,
+        16,
+        24
+      ],
+      "errors": [
+        2.1400748270323816e-06,
+        2.6600578366814746e-07,
+        6.166875493828147e-08,
+        7.976053377135813e-09
+      ]
+    },
+    "6": {
+      "expected_order": 7,
+      "radius_over_h": 1.3,
+      "observed_l2_order": 7.113036026681428,
+      "observed_linf_order": 7.309653406133216,
+      "pairwise_orders": [
+        7.211,
+        7.127,
+        7.071,
+        7.036
+      ],
+      "pairwise_linf_orders": [
+        7.911,
+        7.259,
+        7.106,
+        6.93
+      ],
+      "deepest_error": 4.616189492290118e-13,
+      "deepest_linf_error": 4.814482233136112e-13,
+      "linf_errors": [
+        1.2582004961193864e-08,
+        5.089047614429453e-10,
+        6.304590638165711e-11,
+        3.534561645699797e-12,
+        4.814482233136112e-13
+      ],
+      "gram_cond_max": 389136.56972703035,
+      "extension_residual_max": 7.327471962526033e-15,
+      "min_fluid_fraction": 7.115615974124335e-06,
+      "precision": "double",
+      "extension": "well",
+      "local_basis": "monomial",
+      "extra_columns": 0,
+      "meshes": [
+        8,
+        12,
+        16,
+        24,
+        32
+      ],
+      "errors": [
+        8.888296064802479e-09,
+        4.775123399504398e-10,
+        6.14524793691654e-11,
+        3.4944991299565725e-12,
+        4.616189492290118e-13
+      ]
+    },
+    "8": {
+      "expected_order": 9,
+      "radius_over_h": 1.3,
+      "observed_l2_order": 9.475117857422129,
+      "observed_linf_order": 9.465374228081977,
+      "pairwise_orders": [
+        9.69,
+        9.469,
+        9.272
+      ],
+      "pairwise_linf_orders": [
+        8.989,
+        9.484,
+        9.905
+      ],
+      "deepest_error": 6.242240097098915e-14,
+      "deepest_linf_error": 4.0107340917656054e-13,
+      "linf_errors": [
+        4.303593637091399e-09,
+        3.241543966227376e-10,
+        6.929885669119207e-12,
+        4.0107340917656054e-13
+      ],
+      "gram_cond_max": 25164424.828741934,
+      "extension_residual_max": 3.108624468950438e-14,
+      "min_fluid_fraction": 1.0704027017153165e-07,
+      "precision": "long",
+      "extension": "well",
+      "local_basis": "monomial",
+      "extra_columns": 0,
+      "meshes": [
+        6,
+        8,
+        12,
+        16
+      ],
+      "errors": [
+        6.790131560905189e-10,
+        4.1808092150371024e-11,
+        8.991336166799615e-13,
+        6.242240097098915e-14
+      ]
+    },
+    "10": {
+      "expected_order": 11,
+      "radius_over_h": 1.3,
+      "observed_l2_order": 10.127058409230491,
+      "observed_linf_order": 11.227703450999833,
+      "pairwise_orders": [
+        7.214,
+        7.411,
+        18.932
+      ],
+      "pairwise_linf_orders": [
+        6.937,
+        5.469,
+        27.04
+      ],
+      "deepest_error": 1.6316211411419143e-13,
+      "deepest_linf_error": 1.5612415996609614e-12,
+      "linf_errors": [
+        4.752691397338508e-10,
+        1.3418049687360312e-10,
+        5.774954345517599e-11,
+        1.5612415996609614e-12
+      ],
+      "gram_cond_max": 8177129390.088583,
+      "extension_residual_max": 3.0579061119988707e-12,
+      "min_fluid_fraction": 1.6069714674051005e-09,
+      "precision": "long",
+      "extension": "well",
+      "local_basis": "monomial",
+      "extra_columns": 0,
+      "meshes": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "errors": [
+        2.3870337130243576e-11,
+        6.407354953810657e-12,
+        2.0441360409469314e-12,
+        1.6316211411419143e-13
+      ]
+    }
+  }
+}
