@@ -1,0 +1,24 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          python-version: "3.12"
+      - run: uv sync
+      - run: uv run pytest -q
+      - run: uv run python code/verify.py
+
+  cpp:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: make -C cpp -j"$(nproc)" CXXFLAGS="-std=c++17 -O2 -Wall -Wextra -fno-exceptions -fno-rtti -fopenmp"
+      - run: make -C cpp test

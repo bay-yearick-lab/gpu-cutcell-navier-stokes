@@ -1,0 +1,1043 @@
+# Output of the C++ MMS regression suite (make -C cpp test), one section per program.
+
+==== mms_check ====
+=================================================================
+ B-spline mimetic derivative operators -- identities + MMS check
+=================================================================
+
+--- Structural identities (machine precision) ---
+  BMC  periodic p=2:  skew  ||D1 + D1^T||=2.7e-15
+  BMG  periodic p=2:  green ||K + K^T||=1.1e-18
+  BMF  bounded  p=2:  sbp   ||H0 Dv + G^T H1 - Bd||=6.7e-16
+  BMG  bounded  p=2:  sbp   ||HD + D^T H - d||=1.6e-14  green ||K + K^T - d||=8.4e-15
+  BMC  periodic p=3:  skew  ||D1 + D1^T||=3.6e-15
+  BMG  periodic p=3:  green ||K + K^T||=4.1e-17
+  BMF  bounded  p=3:  sbp   ||H0 Dv + G^T H1 - Bd||=1.0e-15
+  BMG  bounded  p=3:  sbp   ||HD + D^T H - d||=1.2e-14  green ||K + K^T - d||=4.4e-15
+  BMC  periodic p=4:  skew  ||D1 + D1^T||=5.3e-15
+  BMG  periodic p=4:  green ||K + K^T||=5.6e-17
+  BMF  bounded  p=4:  sbp   ||H0 Dv + G^T H1 - Bd||=1.1e-15
+  BMG  bounded  p=4:  sbp   ||HD + D^T H - d||=3.2e-14  green ||K + K^T - d||=1.6e-14
+  BMC  periodic p=5:  skew  ||D1 + D1^T||=1.2e-14
+  BMG  periodic p=5:  green ||K + K^T||=5.6e-17
+  BMF  bounded  p=5:  sbp   ||H0 Dv + G^T H1 - Bd||=2.0e-15
+  BMG  bounded  p=5:  sbp   ||HD + D^T H - d||=5.9e-14  green ||K + K^T - d||=2.8e-14
+  BMC  periodic p=6:  skew  ||D1 + D1^T||=1.5e-14
+  BMG  periodic p=6:  green ||K + K^T||=4.2e-17
+  BMF  bounded  p=6:  sbp   ||H0 Dv + G^T H1 - Bd||=1.6e-15
+  BMG  bounded  p=6:  sbp   ||HD + D^T H - d||=3.2e-14  green ||K + K^T - d||=1.9e-14
+
+--- Periodic collapse identity  BMC_(2p+1) = BMG_p ---
+  BMC_3 vs BMG_1:  ||D1 diff||=2.66e-15   ||D2 diff||=1.14e-13
+  BMC_5 vs BMG_2:  ||D1 diff||=1.24e-14   ||D2 diff||=6.82e-13
+  BMC_7 vs BMG_3:  ||D1 diff||=2.31e-14   ||D2 diff||=6.54e-13
+  BMC_9 vs BMG_4:  ||D1 diff||=2.93e-14   ||D2 diff||=7.11e-13
+
+=== periodic  BMC  (manufactured solution sweep, k=(2,3)) ===
+  p=2  formal: D1=2 D2=2
+      n        h          err(D1)     ord       err(D2)     ord
+      16  0.392699   8.6107e-01    0.00   6.9109e+00    0.00
+      24  0.261799   7.1558e-01    0.46   1.5142e+00    3.74
+      32  0.196350   4.6949e-01    1.46   1.5151e+00   -0.00
+      48  0.130900   1.9151e-01    2.21   1.2631e+00    0.45
+      64  0.098175   8.6743e-02    2.75   8.0874e-01    1.55
+      96  0.065450   3.9183e-02    1.96   3.8347e-01    1.84
+     128  0.049087   2.1778e-02    2.04   2.1953e-01    1.94
+     192  0.032725   9.4472e-03    2.06   9.8659e-02    1.97
+      fitted order:  D1=2.05  D2=1.96
+  p=3  formal: D1=4 D2=2
+      n        h          err(D1)     ord       err(D2)     ord
+      16  0.392699   7.5170e-01    0.00   3.5862e+00    0.00
+      24  0.261799   4.3778e-01    1.33   6.8034e+00   -1.58
+      32  0.196350   1.8114e-01    3.07   6.0412e+00    0.41
+      48  0.130900   4.3415e-02    3.52   3.2337e+00    1.54
+      64  0.098175   1.2267e-02    4.39   1.8379e+00    1.96
+      96  0.065450   2.1758e-03    4.27   8.0822e-01    2.03
+     128  0.049087   6.6045e-04    4.14   4.5179e-01    2.02
+     192  0.032725   1.2847e-04    4.04   1.9978e-01    2.01
+      fitted order:  D1=4.08  D2=2.02
+  p=4  formal: D1=4 D2=4
+      n        h          err(D1)     ord       err(D2)     ord
+      16  0.392699   9.3281e-01    0.00   7.1142e+00    0.00
+      24  0.261799   3.4287e-01    2.47   1.1913e+00    4.41
+      32  0.196350   1.1821e-01    3.70   6.9653e-01    1.87
+      48  0.130900   1.7774e-02    4.67   2.8760e-01    2.18
+      64  0.098175   4.1278e-03    5.08   9.7994e-02    3.74
+      96  0.065450   5.6278e-04    4.91   1.9126e-02    4.03
+     128  0.049087   1.6166e-04    4.34   5.9753e-03    4.04
+     192  0.032725   2.9341e-05    4.21   1.1678e-03    4.03
+      fitted order:  D1=4.26  D2=4.03
+  p=5  formal: D1=6 D2=4
+      n        h          err(D1)     ord       err(D2)     ord
+      16  0.392699   1.1064e+00    0.00   7.4956e+00    0.00
+      24  0.261799   2.9563e-01    3.25   1.1518e+00    4.62
+      32  0.196350   8.4393e-02    4.36   5.0865e-01    2.84
+      48  0.130900   6.7084e-03    6.24   1.7643e-01    2.61
+      64  0.098175   1.0612e-03    6.41   5.0763e-02    4.33
+      96  0.065450   6.1145e-05    7.04   8.4107e-03    4.43
+     128  0.049087   1.0688e-05    6.06   2.4701e-03    4.26
+     192  0.032725   8.6894e-07    6.19   4.6148e-04    4.14
+      fitted order:  D1=6.14  D2=4.18
+  p=6  formal: D1=6 D2=6
+      n        h          err(D1)     ord       err(D2)     ord
+      16  0.392699   1.2039e+00    0.00   8.2229e+00    0.00
+      24  0.261799   2.6162e-01    3.76   9.5065e-01    5.32
+      32  0.196350   6.7895e-02    4.69   2.1215e-01    5.21
+      48  0.130900   3.5340e-03    7.29   5.8278e-02    3.19
+      64  0.098175   3.9944e-04    7.58   1.1015e-02    5.79
+      96  0.065450   1.5911e-05    7.95   8.3553e-04    6.36
+     128  0.049087   2.2259e-06    6.84   1.3833e-04    6.25
+     192  0.032725   1.5800e-07    6.52   1.1502e-05    6.13
+      fitted order:  D1=6.65  D2=6.18
+
+=== periodic  BMG  (manufactured solution sweep, k=(2,3)) ===
+  p=2  formal: D1=6 D2=4
+      n        h          err(D1)     ord       err(D2)     ord
+      16  0.392699   1.1064e+00    0.00   7.4956e+00    0.00
+      24  0.261799   2.9563e-01    3.25   1.1518e+00    4.62
+      32  0.196350   8.4393e-02    4.36   5.0865e-01    2.84
+      48  0.130900   6.7084e-03    6.24   1.7643e-01    2.61
+      64  0.098175   1.0612e-03    6.41   5.0763e-02    4.33
+      96  0.065450   6.1145e-05    7.04   8.4107e-03    4.43
+     128  0.049087   1.0688e-05    6.06   2.4701e-03    4.26
+     192  0.032725   8.6894e-07    6.19   4.6148e-04    4.14
+      fitted order:  D1=6.14  D2=4.18
+  p=3  formal: D1=8 D2=6
+      n        h          err(D1)     ord       err(D2)     ord
+      16  0.392699   1.2634e+00    0.00   8.4732e+00    0.00
+      24  0.261799   2.3416e-01    4.16   8.8274e-01    5.58
+      32  0.196350   5.8238e-02    4.84   1.6691e-01    5.79
+      48  0.130900   2.3683e-03    7.90   3.1004e-02    4.15
+      64  0.098175   1.5279e-04    9.53   4.7189e-03    6.54
+      96  0.065450   3.2596e-06    9.49   2.5397e-04    7.21
+     128  0.049087   2.3876e-07    9.09   3.5954e-05    6.80
+     192  0.032725   8.0361e-09    8.36   2.6427e-06    6.44
+      fitted order:  D1=8.64  D2=6.58
+  p=4  formal: D1=10 D2=8
+      n        h          err(D1)     ord       err(D2)     ord
+      16  0.392699   1.3226e+00    0.00   8.7434e+00    0.00
+      24  0.261799   1.9352e-01    4.74   1.1196e+00    5.07
+      32  0.196350   4.8297e-02    4.82   1.5168e-01    6.95
+      48  0.130900   1.4154e-03    8.71   8.3633e-03    7.15
+      64  0.098175   3.7890e-05   12.58   8.7563e-04    7.84
+      96  0.065450   2.6275e-07   12.26   1.4815e-05   10.06
+     128  0.049087   8.2439e-09   12.03   9.3558e-07    9.60
+     192  0.032725   1.1035e-10   10.64   2.4997e-08    8.93
+      fitted order:  D1=11.18  D2=9.19
+  p=5  formal: D1=12 D2=10
+      n        h          err(D1)     ord       err(D2)     ord
+      16  0.392699   1.3474e+00    0.00   8.8398e+00    0.00
+      24  0.261799   1.6922e-01    5.12   1.2735e+00    4.78
+      32  0.196350   4.0593e-02    4.96   1.4783e-01    7.49
+      48  0.130900   1.0601e-03    8.99   3.8672e-03    8.99
+      64  0.098175   1.8120e-05   14.14   2.5329e-04    9.47
+      96  0.065450   3.1732e-08   15.65   1.4674e-06   12.70
+     128  0.049087   4.4300e-10   14.85   3.9136e-08   12.60
+     192  0.032725   1.9695e-12   13.36   3.5213e-10   11.62
+      fitted order:  D1=13.94  D2=12.00
+  p=6  formal: D1=14 D2=12
+      n        h          err(D1)     ord       err(D2)     ord
+      16  0.392699   1.3590e+00    0.00   8.8801e+00    0.00
+      24  0.261799   1.5755e-01    5.31   1.3591e+00    4.63
+      32  0.196350   3.4233e-02    5.31   1.4107e-01    7.87
+      48  0.130900   9.0861e-04    8.95   2.5137e-03    9.93
+      64  0.098175   1.1391e-05   15.22   9.6775e-05   11.32
+      96  0.065450   5.6179e-09   18.78   2.2719e-07   14.93
+     128  0.049087   3.3151e-11   17.84   2.4545e-09   15.74
+     192  0.032725   1.6964e-13   13.01   7.9545e-12   14.14
+      fitted order:  D1=18.42  D2=14.76
+
+=== bounded  BMF  (manufactured solution sweep, k=(3,4)) ===
+  p=2  formal: D1=2 D2=1
+      n        h          err(D1)     ord       err(D2)     ord
+      16  0.142857   8.2772e-01    0.00   3.2412e+01    0.00
+      24  0.090909   3.6146e-01    1.83   1.5538e+01    1.63
+      32  0.066667   1.9536e-01    1.98   9.2018e+00    1.69
+      48  0.043478   8.3480e-02    1.99   4.7317e+00    1.56
+      64  0.032258   4.6005e-02    2.00   3.0956e+00    1.42
+      96  0.021277   2.0308e-02    1.96   1.7886e+00    1.32
+     128  0.015873   1.1320e-02    1.99   1.2445e+00    1.24
+     192  0.010526   4.9698e-03    2.00   7.6740e-01    1.18
+      fitted order:  D1=2.00  D2=1.20
+  p=3  formal: D1=3 D2=2
+      n        h          err(D1)     ord       err(D2)     ord
+      16  0.153846   2.3600e-01    0.00   1.5663e+01    0.00
+      24  0.095238   7.6568e-02    2.35   8.3837e+00    1.30
+      32  0.068966   3.0634e-02    2.84   4.4570e+00    1.96
+      48  0.044444   8.2335e-03    2.99   1.7828e+00    2.09
+      64  0.032787   3.3016e-03    3.00   9.5195e-01    2.06
+      96  0.021505   9.3205e-04    3.00   4.0387e-01    2.03
+     128  0.016000   3.8430e-04    3.00   2.2254e-01    2.02
+     192  0.010582   1.1139e-04    3.00   9.7070e-02    2.01
+      fitted order:  D1=3.00  D2=2.01
+  p=4  formal: D1=4 D2=3
+      n        h          err(D1)     ord       err(D2)     ord
+      16  0.166667   1.7808e-01    0.00   1.4591e+01    0.00
+      24  0.100000   1.6820e-02    4.62   1.6985e+00    4.21
+      32  0.071429   4.2011e-03    4.12   3.1503e-01    5.01
+      48  0.045455   6.4285e-04    4.15   4.3404e-02    4.39
+      64  0.033333   1.8240e-04    4.06   1.2919e-02    3.91
+      96  0.021739   3.1757e-05    4.09   2.7555e-03    3.61
+     128  0.016129   9.4951e-06    4.04   9.9708e-04    3.41
+     192  0.010638   1.7969e-06    4.00   2.5599e-04    3.27
+      fitted order:  D1=4.02  D2=3.32
+  p=5  formal: D1=5 D2=4
+      n        h          err(D1)     ord       err(D2)     ord
+      16  0.181818   1.4946e-01    0.00   1.6738e+01    0.00
+      24  0.105263   8.0138e-03    5.35   1.5001e+00    4.41
+      32  0.074074   1.1727e-03    5.47   2.8404e-01    4.74
+      48  0.046512   4.4792e-05    7.02   1.3370e-02    6.57
+      64  0.033898   6.6957e-06    6.01   2.8048e-03    4.94
+      96  0.021978   1.1126e-06    4.14   3.5405e-04    4.78
+     128  0.016260   2.7584e-07    4.63   1.5063e-04    2.84
+     192  0.010695   3.6923e-08    4.80   3.5151e-05    3.47
+      fitted order:  D1=4.73  D2=3.22
+  p=6  formal: D1=6 D2=5
+      n        h          err(D1)     ord       err(D2)     ord
+      16  0.200000   1.8192e-01    0.00   2.0995e+01    0.00
+      24  0.111111   8.1468e-03    5.28   1.7127e+00    4.26
+      32  0.076923   4.4288e-04    7.92   9.8970e-02    7.75
+      48  0.047619   2.2776e-05    6.19   1.1443e-02    4.50
+      64  0.034483   2.7521e-06    6.55   1.8472e-03    5.65
+      96  0.022222   1.4957e-07    6.63   1.5325e-04    5.67
+     128  0.016393   2.2522e-08    6.22   2.8102e-05    5.58
+     192  0.010753   1.7010e-09    6.13   2.7901e-06    5.48
+      fitted order:  D1=6.16  D2=5.52
+
+=== bounded  BMG  (manufactured solution sweep, k=(3,4)) ===
+  p=2  formal: D1=2 D2=1
+      n        h          err(D1)     ord       err(D2)     ord
+      16  0.142857   1.8823e-01    0.00   1.4947e+01    0.00
+      24  0.090909   2.6281e-02    4.36   5.4665e+00    2.23
+      32  0.066667   1.2589e-02    2.37   2.8112e+00    2.14
+      48  0.043478   3.2549e-03    3.16   9.5629e-01    2.52
+      64  0.032258   1.8744e-03    1.85   4.0590e-01    2.87
+      96  0.021277   1.0014e-03    1.51   1.5326e-01    2.34
+     128  0.015873   6.0479e-04    1.72   1.3846e-01    0.35
+     192  0.010526   2.8577e-04    1.83   1.0725e-01    0.62
+      fitted order:  D1=1.78  D2=0.51
+  p=3  formal: D1=3 D2=2
+      n        h          err(D1)     ord       err(D2)     ord
+      16  0.153846   2.3718e-01    0.00   1.6593e+01    0.00
+      24  0.095238   4.2512e-02    3.58   3.7138e+00    3.12
+      32  0.068966   1.1279e-02    4.11   1.1115e+00    3.74
+      48  0.044444   2.6040e-03    3.34   3.5414e-01    2.60
+      64  0.032787   1.0247e-03    3.07   1.8304e-01    2.17
+      96  0.021505   2.8700e-04    3.02   7.6232e-02    2.08
+     128  0.016000   1.1794e-04    3.01   4.1622e-02    2.05
+     192  0.010582   3.4051e-05    3.00   1.7961e-02    2.03
+      fitted order:  D1=3.01  D2=2.04
+  p=4  formal: D1=4 D2=3
+      n        h          err(D1)     ord       err(D2)     ord
+      16  0.166667   2.5225e-01    0.00   1.0865e+01    0.00
+      24  0.100000   9.1929e-03    6.48   1.7008e+00    3.63
+      32  0.071429   1.8834e-03    4.71   3.9756e-01    4.32
+      48  0.045455   1.5532e-04    5.52   4.1569e-02    5.00
+      64  0.033333   3.4722e-05    4.83   1.0404e-02    4.47
+      96  0.021739   4.7966e-06    4.63   1.7781e-03    4.13
+     128  0.016129   1.2497e-06    4.51   5.4596e-04    3.96
+     192  0.010638   1.9953e-07    4.41   1.1028e-04    3.84
+      fitted order:  D1=4.45  D2=3.89
+  p=5  formal: D1=5 D2=4
+      n        h          err(D1)     ord       err(D2)     ord
+      16  0.181818   3.3382e-01    0.00   9.5954e+00    0.00
+      24  0.105263   1.2079e-02    6.07   2.4576e+00    2.49
+      32  0.074074   3.3731e-04   10.18   3.8969e-02   11.79
+      48  0.046512   2.9653e-05    5.22   1.0402e-02    2.84
+      64  0.033898   5.7616e-06    5.18   2.9805e-03    3.95
+      96  0.021978   6.8974e-07    4.90   5.7741e-04    3.79
+     128  0.016260   1.5673e-07    4.92   1.8236e-04    3.82
+     192  0.010695   1.9772e-08    4.94   3.5854e-05    3.88
+      fitted order:  D1=4.93  D2=3.86
+  p=6  formal: D1=6 D2=5
+      n        h          err(D1)     ord       err(D2)     ord
+      16  0.200000   4.4501e-01    0.00   3.6224e+01    0.00
+      24  0.111111   1.2430e-02    6.09   1.1485e+00    5.87
+      32  0.076923   3.5595e-04    9.66   1.1581e-01    6.24
+      48  0.047619   9.7687e-06    7.50   4.0423e-03    7.00
+      64  0.034483   1.2435e-06    6.39   7.0472e-04    5.41
+      96  0.022222   7.4656e-08    6.40   6.6738e-05    5.36
+     128  0.016393   1.0574e-08    6.42   1.2975e-05    5.38
+     192  0.010753   7.1589e-10    6.38   1.3632e-06    5.34
+      fitted order:  D1=6.40  D2=5.36
+
+Wrote data/mms_convergence.csv
+
+--- Spectral-like approach: error vs degree p at fixed N ---
+  periodic BMC  N=64  mode k=8  8.0 points/wavelength
+      p      err(D1)      err(D2)     identity
+      2   2.2841e-01   1.5789e+00   2.7e-15
+      3   1.8198e-02   3.3528e+00   3.6e-15
+      4   4.6712e-03   9.1069e-02   5.3e-15
+      5   4.3013e-04   3.8395e-02   1.2e-14
+      6   9.0108e-05   2.6237e-03   1.5e-14
+      7   9.6480e-06   6.6093e-04   2.0e-14
+      8   1.7469e-06   6.2702e-05   3.3e-14
+      9   2.0837e-07   1.2379e-05   5.3e-14
+     10   3.4388e-08   1.3894e-06   5.4e-14
+     11   4.3981e-09   2.4022e-07   1.0e-13
+     12   6.8571e-10   2.9687e-08   1.1e-13
+     13   9.1669e-11   4.7556e-09   2.5e-13
+     14   1.3916e-11   6.2347e-10   2.6e-13
+     15   2.0091e-12   9.6620e-11   4.9e-13
+     16   4.2633e-13   1.4893e-11   7.0e-13
+     17   4.4764e-13   6.8496e-12   2.2e-12
+     18   5.1802e-13   5.9188e-12   2.9e-12
+     19   1.2841e-12   1.0466e-11   3.7e-12
+     20   2.1698e-12   1.9163e-11   9.3e-12
+     21   2.8132e-12   2.4718e-11   2.0e-11
+     22   3.6415e-12   3.3141e-11   3.1e-11
+     23   4.7722e-12   3.5783e-11   5.9e-11
+     24   7.4351e-12   6.3332e-11   1.6e-10
+     25   1.2256e-11   8.2245e-11   2.7e-10
+     26   1.4712e-11   1.1750e-10   1.0e-09
+     27   2.4003e-11   1.3902e-10   1.6e-09
+     28   3.0657e-11   2.8556e-10   1.9e-09
+     29   6.1819e-11   4.8982e-10   1.1e-08
+     30   4.6743e-11   2.6586e-10   2.0e-08
+  periodic BMG  N=64  mode k=8  8.0 points/wavelength
+      p      err(D1)      err(D2)     identity
+      2   4.3013e-04   3.8395e-02   1.1e-18
+      3   9.6480e-06   6.6093e-04   4.1e-17
+      4   2.0837e-07   1.2379e-05   5.6e-17
+      5   4.3981e-09   2.4022e-07   5.6e-17
+      6   9.1662e-11   4.7547e-09   4.2e-17
+      7   2.0322e-12   9.6193e-11   1.1e-16
+      8   8.9617e-13   6.4659e-12   2.1e-17
+      9   1.2133e-12   1.3060e-11   4.1e-17
+     10   1.5996e-12   2.0703e-11   2.8e-17
+     11   5.6657e-12   5.7341e-11   3.7e-17
+     12   1.7787e-11   1.0633e-10   5.6e-17
+     13   2.4487e-11   2.3577e-10   9.7e-17
+     14   6.7084e-11   6.6176e-10   1.2e-16
+
+Wrote data/mms_spectral.csv
+
+==== mms_ns ====
+=================================================================
+ MMS for the config-driven grad / div / Laplacian (modularity)
+=================================================================
+ formal order: p=4 -> bounded ~p, periodic >= p (errors at the finer grid)
+
+  3D periodic BMC            grad 4.06e-04 (ord 4.3)  div 4.06e-04 (ord 4.3)  lap 5.29e-03 (ord 4.0)
+  3D channel (z wall) BMC    grad 9.20e-05 (ord 4.2)  div 9.20e-05 (ord 4.2)  lap 8.55e-04 (ord 4.0)
+  3D walled box BMC          grad 2.13e-07 (ord 4.5)  div 2.13e-07 (ord 4.5)  lap 4.77e-05 (ord 3.4)
+  2D periodic BMC            grad 2.84e-05 (ord 4.1)  div 2.84e-05 (ord 4.1)  lap 2.70e-04 (ord 4.0)
+  3D periodic BMG            grad 1.50e-09 (ord 10.5)  div 1.50e-09 (ord 10.5)  lap 5.29e-03 (ord 4.0)
+  bad config (N=5,p=6)       rejected: each active axis needs N >= p + 2
+
+Done.
+
+==== mms_bmf ====
+=================================================================
+ MMS for the 3D BMF (staggered flux) Laplacian on wall boundaries
+ L = sum_a Dv_a G_a ;  expect order ~ p-1 (wall-row cap)
+=================================================================
+
+  walled box p=3              err(N=36) 7.904e-03   order 2.2
+  walled box p=4              err(N=36) 8.325e-05   order 3.7
+  walled box p=5              err(N=36) 2.854e-06   order 4.8
+
+  channel (z wall) p=3        err(N=36) 2.480e-01   order 2.1
+  channel (z wall) p=4        err(N=36) 2.671e-03   order 4.1
+  channel (z wall) p=5        err(N=36) 1.063e-03   order 4.2
+
+ staggered grad/div cross-check: ||div(grad phi) - (Dv.G) phi||
+   walled box p=3:  9.54e-13
+   walled box p=4:  1.84e-12
+   walled box p=5:  6.43e-12
+
+ BMF channel Poisson/Helmholtz (FFT x,y + per-mode Dv_z G_z solve)
+   usable at moderate p; high-p limited by cond of the DENSE-inverse
+   BMF operator (matrix-free banded reduce-solve-expand = the fix)
+   channel p=3:  Poisson 2.98e-11   Helmholtz 6.70e-12
+   channel p=4:  Poisson 1.83e-08   Helmholtz 2.28e-09
+   channel p=5:  Poisson 7.69e-07   Helmholtz 3.91e-08
+   channel p=6:  Poisson 1.38e-05   Helmholtz 4.10e-07
+
+ Matrix-free banded BMF apply (vs dense) + eigenvalue-pollution test
+   p    ||G_band - G_dense||   ||Dv_band - Dv_dense||   max|D2 rough|: dense / banded
+   3    1.42e-14               9.68e-14                 9.56e+03 / 9.56e+03
+   4    3.20e-14               2.23e-13                 2.41e+04 / 2.41e+04
+   5    3.55e-14               1.02e-13                 4.56e+04 / 4.56e+04
+   6    5.68e-14               2.42e-13                 7.45e+04 / 7.45e+04
+   7    5.68e-14               5.34e-13                 1.11e+05 / 1.11e+05
+   8    4.26e-14               5.36e-13                 1.53e+05 / 1.53e+05
+
+ D2 apply at N=512 p=5 (400 reps): banded 0.023 s   dense 0.111 s   speedup 4.8x
+
+Done.
+
+==== mms_poisson ====
+=================================================================
+ MMS for the separable Poisson / Helmholtz solver (round trip)
+ exact inverse -> expect machine precision
+=================================================================
+
+  3D periodic 32^3       Poisson 4.88e-15   Helmholtz 4.33e-15
+  3D periodic p=6        Poisson 6.66e-15   Helmholtz 5.66e-15
+  2D periodic 64^2       Poisson 7.33e-15   Helmholtz 6.66e-15
+  N=48 (not pow2)        refused: periodic FFT solve needs power-of-two N
+
+ channel: x,y periodic (FFT), z clamped wall (banded solve)
+   (error grows with p = conditioning of clamped COLLOCATION B; the
+    natural-metric BMG / SBP-flux BMF wall operators are the fix.)
+  channel 32^3 p=2       Poisson 2.27e-14   Helmholtz 2.00e-14
+  channel 32^3 p=3       Poisson 2.09e-12   Helmholtz 3.94e-13
+  channel 32^3 p=4       Poisson 2.92e-10   Helmholtz 4.43e-11
+  channel 32^3 p=5       Poisson 9.09e-08   Helmholtz 5.61e-09
+  channel 32^3 p=6       Poisson 3.25e-06   Helmholtz 5.84e-08
+
+ 1D clamped Helmholtz round-trip vs degree (the wall conditioning fix)
+   p    collocation (B - cB'')   Galerkin (M + cS)
+   2    7.783e-14                8.882e-16
+   3    1.595e-12                5.551e-16
+   4    9.652e-11                1.110e-15
+   5    1.015e-08                1.443e-15
+   6    9.561e-08                2.554e-15
+   7    1.920e-06                2.665e-15
+   8    4.992e-05                9.770e-15
+
+ Galerkin channel solver (coefficient space, M & S) -- well-conditioned at high p
+   (p=8 ~1e-10 vs collocation/dense-BMF ~1e-4: ~5 orders better)
+   p    Poisson(Neumann)  Helmholtz(Neumann)  Helmholtz(Dirichlet/no-slip)
+   2    4.247e-15         4.066e-15           1.665e-15
+   4    3.476e-14         3.402e-14           5.163e-14
+   6    2.895e-12         3.245e-12           2.687e-12
+   8    1.672e-10         2.104e-10           2.544e-10
+
+Done.
+
+==== mms_compressible ====
+
+ COMPRESSIBLE NS -- verification suite
+
+=================================================================
+ (1) Inviscid conservation (split skew-symmetric form)
+=================================================================
+   convective dKE/dt   = 1.12e-20  (rel 5.32e-19)  -- split convection conserves KE
+   300 steps, dt=0.0226, min(rho)=0.5393
+   |dMass|     = 1.05e-14   (round-off: mass conserved)
+   |dMom_x|    = 2.05e-19   (round-off: momentum conserved)
+   |dMom_y|    = 1.87e-18
+   |dMom_z|    = 1.15e-17
+   |dEnergy|   = 3.55e-14   (round-off: TOTAL energy conserved -- the
+                            inviscid invariant; KE alone is not, it
+                            trades with internal energy by pdV work)
+
+=================================================================
+ (2) Isentropic vortex: spatial order (rel-L2 of density)
+=================================================================
+  p=2  (formal order 2)
+     N        h          rel-L2        order
+     24   0.41667   2.3637e-03      -- 0.00
+     32   0.31250   1.1665e-03   2.45
+     48   0.20833   4.6689e-04   2.26
+     64   0.15625   2.5474e-04   2.11
+     => asymptotic order ~2.3  (formal 2; finest N flattens at the
+        ~1e-6 vortex periodicity floor for high p)
+
+  p=4  (formal order 4)
+     N        h          rel-L2        order
+     24   0.41667   5.4772e-04      -- 0.00
+     32   0.31250   8.1385e-05   6.63
+     48   0.20833   9.3132e-06   5.35
+     64   0.15625   2.4923e-06   4.58
+     => asymptotic order ~5.3  (formal 4; finest N flattens at the
+        ~1e-6 vortex periodicity floor for high p)
+
+  p=6  (formal order 6)
+     N        h          rel-L2        order
+     24   0.41667   2.9229e-04      -- 0.00
+     32   0.31250   1.6968e-05   9.89
+     48   0.20833   6.9607e-07   7.88
+     64   0.15625   3.2800e-07   2.62
+     => asymptotic order ~7.9  (formal 6; finest N flattens at the
+        ~1e-6 vortex periodicity floor for high p)
+
+=================================================================
+ (3) Viscous operator MMS:  rhs(mu)-rhs(0)  vs analytic d_j tau_ij
+=================================================================
+  p=2  (formal order 2)
+     N        h          rel-L2        order
+     16   0.39270   2.0511e-02      -- 0.00
+     24   0.26180   8.7961e-03   2.09
+     32   0.19635   4.8859e-03   2.04
+     48   0.13090   2.1520e-03   2.02
+     => measured ~2.0  (formal 2)
+
+  p=4  (formal order 4)
+     N        h          rel-L2        order
+     16   0.39270   3.0332e-04      -- 0.00
+     24   0.26180   5.3186e-05   4.29
+     32   0.19635   1.6124e-05   4.15
+     48   0.13090   3.0879e-06   4.08
+     => measured ~4.1  (formal 4)
+
+  p=6  (formal order 6)
+     N        h          rel-L2        order
+     16   0.39270   5.5396e-06      -- 0.00
+     24   0.26180   3.9279e-07   6.53
+     32   0.19635   6.4569e-08   6.28
+     48   0.13090   5.3465e-09   6.14
+     => measured ~6.1  (formal 6)
+
+=================================================================
+ (4) Full inviscid RHS MMS: discrete split RHS vs analytic Euler RHS
+=================================================================
+  p=2  (formal order 2)
+     N        h          rel-L2        order
+     16   0.39270   6.9401e-03      -- 0.00
+     24   0.26180   3.0275e-03   2.05
+     32   0.19635   1.6919e-03   2.02
+     48   0.13090   7.4846e-04   2.01
+     => measured ~2.0  (formal 2)
+
+  p=4  (formal order 4)
+     N        h          rel-L2        order
+     16   0.39270   5.1774e-05      -- 0.00
+     24   0.26180   9.2954e-06   4.24
+     32   0.19635   2.8458e-06   4.11
+     48   0.13090   5.4913e-07   4.06
+     => measured ~4.1  (formal 4)
+
+  p=6  (formal order 6)
+     N        h          rel-L2        order
+     16   0.39270   9.6130e-07      -- 0.00
+     24   0.26180   6.3397e-08   6.71
+     32   0.19635   1.0194e-08   6.35
+     48   0.13090   8.3181e-10   6.18
+     => measured ~6.2  (formal 6)
+
+=================================================================
+ (5) Heat conduction MMS: energy RHS (u=0) vs analytic kappa lap T
+=================================================================
+  p=2  (formal order 2)
+     N        h          rel-L2        order
+     16   0.39270   6.3661e-03      -- 0.00
+     24   0.26180   2.8442e-03   1.99
+     32   0.19635   1.6027e-03   1.99
+     48   0.13090   7.1323e-04   2.00
+     => measured ~2.0  (formal 2)
+
+  p=4  (formal order 4)
+     N        h          rel-L2        order
+     16   0.39270   8.7284e-05      -- 0.00
+     24   0.26180   1.7178e-05   4.01
+     32   0.19635   5.4281e-06   4.00
+     48   0.13090   1.0712e-06   4.00
+     => measured ~4.0  (formal 4)
+
+  p=6  (formal order 6)
+     N        h          rel-L2        order
+     16   0.39270   6.0050e-07      -- 0.00
+     24   0.26180   5.2080e-08   6.03
+     32   0.19635   9.2295e-09   6.01
+     48   0.13090   8.0778e-10   6.01
+     => measured ~6.0  (formal 6)
+
+=================================================================
+ (7) CHANNEL (z-wall) inviscid RHS MMS: discrete split RHS vs analytic
+     (x,y periodic + z clamped wall; boundary BMC/BMG/BMF for compressible)
+=================================================================
+  p=2  (formal order 2)
+     N        h          rel-L2        order
+     16   0.12500   5.2694e-03      -- 0.00
+     24   0.08333   2.3058e-03   2.04
+     32   0.06250   1.2905e-03   2.02
+     48   0.04167   5.7167e-04   2.01
+     => measured ~2.0  (formal 2)
+
+  p=4  (formal order 4)
+     N        h          rel-L2        order
+     16   0.12500   4.1370e-05      -- 0.00
+     24   0.08333   7.3228e-06   4.27
+     32   0.06250   2.2286e-06   4.14
+     48   0.04167   4.2778e-07   4.07
+     => measured ~4.1  (formal 4)
+
+  p=6  (formal order 6)
+     N        h          rel-L2        order
+     16   0.12500   8.4400e-07      -- 0.00
+     24   0.08333   5.3735e-08   6.79
+     32   0.06250   8.5078e-09   6.41
+     48   0.04167   6.8463e-10   6.21
+     => measured ~6.2  (formal 6)
+
+=================================================================
+ (6) Acoustic propagation: right-moving pulse speed vs c=sqrt(gamma p/rho)
+=================================================================
+   exact c = 1.18322,  measured c = 1.18393,  rel err = 6.06e-04  (94 steps)
+
+Done.
+
+==== mms_burgers ====
+
+ ENERGY-CONSERVING WALL ADVECTION -- 1D Burgers (coefficient space)
+
+=================================================================
+ (1) Semi-discrete energy identity:  alpha^T C == wall flux [u^3/3]
+=================================================================
+   no-slip walls (u(0)=u(L)=0):  -dE/dt|conv = 4.404e-17   (must be round-off)
+   open walls:  -dE/dt|conv = 3.033333e-02   flux -[u^3/3] = 3.033333e-02   |diff| = 3.47e-18
+   => the interior advection injects ZERO energy; only the wall flux remains.
+
+=================================================================
+ (2) Dynamic stability: no-slip Burgers, energy vs time-step error
+=================================================================
+   nu = 0
+     dt=0.0040  |dE|/E0=1.11e-08   max|u|=1.000 (bounded)
+     dt=0.0020  |dE|/E0=6.53e-09 (shrinks w/ dt)  max|u|=1.000 (bounded)
+     dt=0.0010  |dE|/E0=5.96e-09 (shrinks w/ dt)  max|u|=1.000 (bounded)
+   nu = 0.01
+     dt=0.0040  E/E0=0.9775 (viscous decay, monotone)  max|u|=0.989
+     dt=0.0020  E/E0=0.9775 (viscous decay, monotone)  max|u|=0.989
+     dt=0.0010  E/E0=0.9775 (viscous decay, monotone)  max|u|=0.989
+   => bounded + energy conserved to O(dt^3); the collocated wall BLEW UP here.
+
+=================================================================
+ (3) Accuracy: Galerkin convective term B M^-1 C vs analytic d_x(u^2/2)
+=================================================================
+   p=2
+     N        h          rel-L2        order
+     16   0.12500   4.8346e-04      -- 0.00
+     24   0.08333   9.6055e-05   3.99
+     32   0.06250   3.2015e-05   3.82
+     48   0.04167   7.0940e-06   3.72
+     => measured ~3.7
+
+   p=4
+     N        h          rel-L2        order
+     16   0.12500   5.6844e-06      -- 0.00
+     24   0.08333   3.3530e-07   6.98
+     32   0.06250   5.1751e-08   6.50
+     48   0.04167   4.2204e-09   6.18
+     => measured ~6.2
+
+   p=6
+     N        h          rel-L2        order
+     16   0.12500   2.1680e-07      -- 0.00
+     24   0.08333   2.3393e-09   11.17
+     32   0.06250   1.4226e-10   9.73
+     48   0.04167   3.7461e-12   8.97
+     => measured ~9.0
+
+Done.
+
+==== mms_wall2d ====
+
+ ENERGY-CONSERVING WALL ADVECTION -- 2D walled box (multi-axis)
+
+=================================================================
+ Semi-discrete enstrophy rate  alpha_phi^T C  (must be round-off:
+ the 2D Galerkin advection injects zero enstrophy on a walled box)
+=================================================================
+   p    N      alpha_phi^T C      max|C|       (rate/scale)
+   2   12       2.499e-17     4.119e-02    4.02e-17
+   2   18       2.848e-16     1.730e-02    4.54e-16
+   3   12       1.112e-16     4.350e-02    1.81e-16
+   3   18      -5.762e-17     1.900e-02    9.21e-17
+   4   12       3.916e-17     4.408e-02    6.44e-17
+   4   18      -1.569e-16     2.035e-02    2.52e-16
+   5   12      -3.505e-17     4.637e-02    5.89e-17
+   5   18      -3.052e-16     2.088e-02    4.92e-16
+
+ => zero enstrophy injection on a 2D WALLED box: the energy-conserving
+    advection composes across axes. Same construction per plane in 3D.
+
+=================================================================
+ Dynamic: time-march phi in the fixed vortex, enstrophy vs time
+=================================================================
+   N=20 p=4  500 steps dt=0.004:  E/E0 = 0.9999997945  |dE|/E0 = 2.06e-07
+   range over run: [0.9999997945, 1.0000000000] -> BOUNDED, enstrophy conserved.
+
+Done.
+
+==== mms_infsup ====
+
+ INF-SUP STABILITY of the Galerkin wall velocity/pressure pairing (2D box)
+ beta = discrete inf-sup constant (N-independent => STABLE); (null) = #
+ near-null pressure modes (1 = the physical constant; >1 = checkerboard).
+
+   velocity degree p=3
+   N(vel)   beta [equal q=p] (null)   beta [reduced q=p-1] (null)
+      6       3.1416e+00 (1)         4.4428e+00 (0)
+      8       3.1416e+00 (1)         4.4429e+00 (0)
+     10       3.1416e+00 (1)         4.4429e+00 (0)
+     12       3.1416e+00 (1)         4.4429e+00 (0)
+     16       3.1416e+00 (1)         4.4429e+00 (0)
+
+ => beta is N-INDEPENDENT (~pi) with only the 1 physical pressure null
+    (no spurious checkerboard) for BOTH pairings: the Galerkin B-spline
+    wall pairing is inf-sup STABLE (smoothness beats C0 Q1-Q1). So a
+    consistent coefficient-space GALERKIN projection is the stable wall
+    route; the documented blow-up was the COLLOCATED nodal L=sum G^2
+    (nodal-derivative Nyquist null), not the Galerkin pairing.
+Done.
+
+==== mms_wallns2d ====
+
+ PRIMITIVE 2D WALLED-BOX NS (energy-conserving advection + Schur projection)
+
+=================================================================
+ (1) Schur projection idempotency: weak div of a divergent field
+=================================================================
+   max|weak div| before = 3.641e-02
+   max|weak div| after  = 4.616e-14   (idempotent: weak-div-free to CG tol)
+
+=================================================================
+ (2) Stokes (no advection): no-slip viscous decay, div held, stable
+=================================================================
+    step    KE/KE0      max|weak div|
+      0    1.000000    4.78e-09
+    100    0.974027    2.81e-05
+    200    0.948741    2.86e-05
+    300    0.924123    2.89e-05
+   => monotone viscous decay, stable (div ~ wall-splitting error).
+
+=================================================================
+ (3) Full NS: no-slip vortex, energy-conserving advection + projection
+=================================================================
+    step    KE/KE0      max|weak div|   max|u|
+      0    1.000000    4.78e-09        1.590
+    100    0.961555    6.66e-04        1.507
+    200    0.925243    2.62e-04        1.498
+    300    0.891669    3.14e-04        1.470
+    400    0.859585    3.19e-04        1.431
+   => STABLE nonlinear wall NS: bounded (max KE/KE0=1.000), weak div
+      held small (~wall fractional-step splitting error). The energy-
+      conserving advection + Schur projection give a stable wall loop.
+
+Done.
+
+==== mms_wallns3d ====
+
+ 3D WALLED-BOX PRIMITIVE NS (wall_ns3d.h) -- the 3D wall-NS loop
+
+=================================================================
+ (1) Schur projection idempotency (3D), divergent field
+=================================================================
+   max|weak div| before = 3.074e-02
+   max|weak div| after  = 4.276e-17   (idempotent: weak-div-free to CG tol)
+
+=================================================================
+ (2) Stokes (no advection): no-slip viscous decay, stable
+=================================================================
+    step   KE/KE0     max|weak div|
+      0   1.000000    1.43e-02
+     20   0.399601    1.73e-03
+     40   0.362666    3.95e-04
+     60   0.351627    1.16e-04
+   => stable viscous decay.
+
+=================================================================
+ (3) Full 3D NS: no-slip flow, energy-conserving advection + Schur
+=================================================================
+    step   KE/KE0     max|weak div|   max|u|
+      0   1.000000    1.43e-02        0.598
+     20   0.401653    1.60e-03        0.445
+   => STABLE 3D nonlinear wall NS: bounded (max KE/KE0=1.000), div held.
+=================================================================
+ (4) IMEX (implicit viscous, fast-diag): stable at ADVECTIVE dt, high Re
+=================================================================
+   Re=  2000  dt=0.0600  60 imex steps:  KE/KE0=0.2858  max|wdiv|=4.5e-04  max|u|=0.55  STABLE
+   Re= 20000  dt=0.0600  60 imex steps:  KE/KE0=0.3650  max|wdiv|=4.7e-04  max|u|=0.69  STABLE
+   => implicit viscous lifts the viscous-CFL limit (advective dt at any Re).
+=================================================================
+ (5) CHANNEL (x,y periodic + z wall): projection idempotent + stable
+=================================================================
+   weak div before = 2.766e-01
+   weak div after  = 8.743e-16   (Fourier x,y + Galerkin z; Nyquist pinned)
+   40 imex steps:  KE/KE0=0.1758  max|wdiv|=1.8e-03  max|u|=0.63  STABLE
+   => the turbulent-CHANNEL solver works (canonical wall-DNS geometry).
+=================================================================
+ (6) operator identities: stiff-as-called + interior rate solve
+=================================================================
+   walled box:        stiff(aliased)-vs-fresh = 0.00e+00   M_II^-1 identity = 3.10e-16
+   channel (xy per):  stiff(aliased)-vs-fresh = 0.00e+00   M_II^-1 identity = 1.91e-15
+   => both identities hold to round-off.
+
+Done.
+
+==== mms_tgdecay ====
+
+ TAYLOR-GREEN NO-SLIP DECAY GATE (wall_ns2d.h, p=4, Re=400, T=0.48)
+ reference: diss0 = 2 nu pi^2 = 4.93480220e-02, KE(T) = 0.1647438
+
+    N    nu*quad|grad|^2   nu*u'stiff(u)    KE(T)       |KE err|
+    16   4.93475738e-02   4.93475738e-02   0.1645406   2.032e-04
+    24   4.93480005e-02   4.93480005e-02   0.1645855   1.583e-04
+    32   4.93480191e-02   4.93480191e-02   0.1645949   1.489e-04
+
+  KE(T) error vs BMF reference, order (last pair): 0.21 (splitting floor saturates this; informational)
+
+ TG decay gate: PASS
+
+
+==== mms_cut1d ====
+=================================================================
+ MMS / identity gate: 1D sharp-cut kernel (cut1d.h)
+ self-similar sliver cut at left = theta*h, fluid = [left, 1]
+=================================================================
+
+  degree p = 2  (formal best-approx order p+1 = 3)
+   N_el   h         gamma_min   #small  Green       polyE       SBP(red)    L2err       order
+      8   0.12500   7.59e-05      1     4.44e-16    6.94e-18    4.44e-16    1.35e-04    --0.00
+     16   0.06250   7.59e-05      1     1.78e-15    3.47e-18    1.78e-15    1.76e-05    2.93
+     32   0.03125   7.59e-05      1     3.90e-16    1.73e-18    3.90e-16    2.26e-06    2.96
+     64   0.01562   7.59e-05      1     2.39e-15    8.67e-19    2.39e-15    2.87e-07    2.98
+   => Green<=2.4e-15  polyE<=6.9e-18  SBP(red)<=2.4e-15 ; best-approx order ~ p+1
+
+  degree p = 3  (formal best-approx order p+1 = 4)
+   N_el   h         gamma_min   #small  Green       polyE       SBP(red)    L2err       order
+      8   0.12500   1.71e-06      1     6.66e-16    2.22e-16    6.66e-16    9.08e-06    --0.00
+     16   0.06250   1.71e-06      1     2.44e-15    3.33e-16    2.44e-15    5.70e-07    3.99
+     32   0.03125   1.71e-06      1     5.94e-16    3.33e-16    5.94e-16    3.57e-08    4.00
+     64   0.01562   1.71e-06      1     3.66e-15    3.33e-16    3.66e-15    2.23e-09    4.00
+   => Green<=3.7e-15  polyE<=3.3e-16  SBP(red)<=3.7e-15 ; best-approx order ~ p+1
+
+  degree p = 4  (formal best-approx order p+1 = 5)
+   N_el   h         gamma_min   #small  Green       polyE       SBP(red)    L2err       order
+      8   0.12500   3.84e-08      2     8.88e-16    1.39e-16    1.33e-15    2.14e-06    --0.00
+     16   0.06250   3.84e-08      2     2.66e-15    5.55e-16    2.66e-15    7.58e-08    4.82
+     32   0.03125   3.84e-08      2     1.24e-15    5.55e-16    1.33e-15    1.93e-09    5.29
+     64   0.01562   3.84e-08      2     4.11e-15    5.55e-16    4.11e-15    4.57e-11    5.40
+   => Green<=4.1e-15  polyE<=5.6e-16  SBP(red)<=4.1e-15 ; best-approx order ~ p+1
+
+  degree p = 5  (formal best-approx order p+1 = 6)
+   N_el   h         gamma_min   #small  Green       polyE       SBP(red)    L2err       order
+      8   0.12500   8.65e-10      2     1.55e-15    2.22e-16    1.55e-15    2.26e-07    --0.00
+     16   0.06250   8.65e-10      2     2.22e-16    3.33e-16    3.33e-16    1.98e-09    6.84
+     32   0.03125   8.65e-10      2     7.22e-15    3.33e-16    7.22e-15    1.83e-11    6.76
+     64   0.01562   8.65e-10      2     9.10e-15    3.33e-16    9.10e-15    1.91e-13    6.58
+   => Green<=9.1e-15  polyE<=3.3e-16  SBP(red)<=9.1e-15 ; best-approx order ~ p+1
+
+Done.
+
+==== mms_cut2d ====
+=================================================================
+ MMS / identity gate: 2D oblique sharp-cut kernel (cut2d.h)
+ half-plane cut  n.x >= offset,  theta = 30 deg
+=================================================================
+
+  degree p = 2  (formal best-approx order p+1 = 3)
+   N_el   h         gamma_min   #small  Green_x     Green_y     polyE       SBP(red)    L2err       order
+      8   0.12500   7.64e-13     10     4.09e-16    4.44e-16    4.44e-16    4.09e-16    7.35e-05    --0.00
+     12   0.08333   6.27e-19     18     3.99e-16    3.40e-16    1.78e-15    3.99e-16    2.27e-05    2.90
+     16   0.06250   2.93e-14     22     3.19e-16    2.43e-16    2.22e-15    3.19e-16    9.56e-06    3.00
+     24   0.04167   2.43e-19     34     2.67e-16    1.73e-16    1.44e-15    2.67e-16    2.82e-06    3.01
+   => Green<=4.4e-16  polyE<=2.2e-15  SBP(red)<=4.1e-16 ; best-approx order ~ p+1
+
+  degree p = 3  (formal best-approx order p+1 = 4)
+   N_el   h         gamma_min   #small  Green_x     Green_y     polyE       SBP(red)    L2err       order
+      8   0.12500   9.94e-19     16     4.06e-16    5.90e-16    4.88e-15    4.23e-16    6.36e-06    --0.00
+     12   0.08333   8.74e-17     23     3.50e-16    4.23e-16    4.00e-15    5.83e-16    1.74e-06    3.19
+     16   0.06250   4.29e-21     32     3.33e-16    2.81e-16    4.66e-15    3.33e-16    4.31e-07    4.86
+     24   0.04167   2.11e-20     47     3.12e-16    2.12e-16    6.77e-15    3.12e-16    8.01e-08    4.15
+   => Green<=5.9e-16  polyE<=6.8e-15  SBP(red)<=5.8e-16 ; best-approx order ~ p+1
+
+  degree p = 4  (formal best-approx order p+1 = 5)
+   N_el   h         gamma_min   #small  Green_x     Green_y     polyE       SBP(red)    L2err       order
+      8   0.12500   1.39e-16     19     4.86e-16    6.59e-16    1.80e-14    4.86e-16    2.97e-07    --0.00
+     12   0.08333   1.49e-22     30     3.85e-16    4.65e-16    4.33e-14    4.58e-16    1.01e-07    2.67
+     16   0.06250   3.30e-22     42     3.07e-16    3.26e-16    2.29e-14    4.09e-16    2.64e-08    4.66
+     24   0.04167   7.94e-22     61     2.69e-16    2.46e-16    2.46e-14    2.69e-16    2.23e-09    6.10
+   => Green<=6.6e-16  polyE<=4.3e-14  SBP(red)<=4.9e-16 ; best-approx order ~ p+1
+
+Done.
+
+==== mms_cut3d ====
+=================================================================
+ MMS / identity gate: 3D tensor-cut operator layer (cut3d.h)
+ tensor cut box [a,1]^3, corner sliver vol-frac = (frac)^3
+=================================================================
+
+  degree p = 2  (formal best-approx order p+1 = 3)
+   N_el   h         cornerfrac   SBP(red)    L2err       order
+      4   0.25000   1.68e-01    8.88e-16    1.75e-04    --0.00
+      6   0.16667   1.68e-01    2.22e-15    5.36e-05    2.91
+      8   0.12500   1.68e-01    4.44e-16    2.30e-05    2.94
+     10   0.10000   1.68e-01    1.56e-15    1.19e-05    2.95
+   => SBP(red)<=2.2e-15 ; best-approx order ~ p+1
+
+  degree p = 3  (formal best-approx order p+1 = 4)
+   N_el   h         cornerfrac   SBP(red)    L2err       order
+      4   0.25000   8.24e-02    1.33e-15    1.28e-05    --0.00
+      6   0.16667   8.24e-02    2.66e-15    2.61e-06    3.92
+      8   0.12500   8.24e-02    6.66e-16    8.41e-07    3.94
+     10   0.10000   8.24e-02    2.66e-15    3.49e-07    3.95
+   => SBP(red)<=2.7e-15 ; best-approx order ~ p+1
+
+  degree p = 4  (formal best-approx order p+1 = 5)
+   N_el   h         cornerfrac   SBP(red)    L2err       order
+      4   0.25000   4.04e-02    2.00e-15    1.48e-06    --0.00
+      6   0.16667   4.04e-02    3.55e-15    1.55e-07    5.56
+      8   0.12500   4.04e-02    1.33e-15    3.35e-08    5.32
+     10   0.10000   4.04e-02    3.66e-15    1.06e-08    5.16
+   => SBP(red)<=3.7e-15 ; best-approx order ~ p+1
+
+Done.
+
+==== mms_comp_cut3d ====
+=================================================================
+ MMS gate: conservative-flux machinery on the 3D tensor cut
+=================================================================
+
+  (1) L2 projection on the cut box
+   p=2   polyP(deg p)   smooth L2 (order)
+     ne= 4  poly=1.26e-15   smooth=2.85e-04  --0.00
+     ne= 6  poly=1.25e-15   smooth=9.21e-05  2.79
+     ne= 8  poly=1.22e-15   smooth=4.08e-05  2.84
+     ne=10  poly=1.23e-15   smooth=2.15e-05  2.87
+   p=3   polyP(deg p)   smooth L2 (order)
+     ne= 4  poly=2.01e-14   smooth=4.27e-05  --0.00
+     ne= 6  poly=1.79e-14   smooth=8.62e-06  3.95
+     ne= 8  poly=1.77e-14   smooth=2.75e-06  3.96
+     ne=10  poly=1.64e-14   smooth=1.14e-06  3.97
+   p=4   polyP(deg p)   smooth L2 (order)
+     ne= 4  poly=1.55e-14   smooth=7.09e-06  --0.00
+     ne= 6  poly=1.69e-14   smooth=9.53e-07  4.95
+     ne= 8  poly=1.30e-14   smooth=2.13e-07  5.21
+     ne=10  poly=1.25e-14   smooth=6.54e-08  5.29
+
+  (2) Compressible RHS truncation on the exact steady vortex (H-norm, p+1 target)
+   p=2
+     ne= 4  trunc(rel H-norm)=3.151e-01  --0.00
+     ne= 6  trunc(rel H-norm)=6.735e-02  3.81
+     ne= 8  trunc(rel H-norm)=1.564e-02  5.08
+     ne=10  trunc(rel H-norm)=3.788e-03  6.35
+   p=3
+     ne= 4  trunc(rel H-norm)=1.918e-01  --0.00
+     ne= 6  trunc(rel H-norm)=5.452e-02  3.10
+     ne= 8  trunc(rel H-norm)=1.662e-02  4.13
+     ne=10  trunc(rel H-norm)=5.626e-03  4.85
+   p=4
+     ne= 4  trunc(rel H-norm)=2.000e-01  --0.00
+     ne= 6  trunc(rel H-norm)=6.193e-02  2.89
+     ne= 8  trunc(rel H-norm)=1.423e-02  5.11
+     ne=10  trunc(rel H-norm)=2.078e-03  8.62
+
+  (3) Conservation primitive: ||reduced Q_x (constant)|| -> roundoff
+     p=2  max|Q_axis . 1| = 2.78e-18
+     p=3  max|Q_axis . 1| = 1.64e-18
+     p=4  max|Q_axis . 1| = 3.13e-18
+
+  (4) Headline conservation identities (instantaneous)
+     p=2  inviscid KE-rate(rel)=1.27e-16   pulse mass-rate=0.00e+00  energy-rate=0.00e+00
+     p=3  inviscid KE-rate(rel)=3.81e-17   pulse mass-rate=0.00e+00  energy-rate=0.00e+00
+     p=4  inviscid KE-rate(rel)=9.87e-17   pulse mass-rate=0.00e+00  energy-rate=0.00e+00
+     => interior KE production and mass/energy rates at the roundoff floor.
+
+  (5) Cut-independence: conservation vs corner-cut volume fraction (p=3)
+     frac     corner_volfrac   KE-rate(rel)   pulse mass-rate   energy-rate
+     0.5000   4.77e-07        3.04e-18       0.00e+00          0.00e+00
+     0.9000   1.00e-21        3.71e-17       0.00e+00          0.00e+00
+     0.9900   1.00e-42        5.84e-17       0.00e+00          0.00e+00
+     0.9990   1.00e-63        5.56e-17       0.00e+00          0.00e+00
+     0.9999   6.57e-05        1.09e-16       0.00e+00          0.00e+00
+     => conservation set by the background grid, independent of the cut fraction.
+
+Done.
+
+==== mms_hill2d ====
+=================================================================
+ MMS gate: 2D curved periodic-hill cut (hill_cut2d.h)
+ fluid { y >= h(x) } on the unit square, hbar(x)=h(Lx x)/Ly
+=================================================================
+
+  degree p=2 (formal best-approx p+1=3)
+   N_el   h        gamma_min  #small  Green_x    Green_y    polyE      L2err      order
+      8  0.12500  2.75e-16     8    3.53e-08   1.45e-08   8.88e-16   7.64e-05   --0.00
+     12  0.08333  9.14e-10    12    2.45e-06   1.17e-06   1.11e-15   2.45e-05   2.80
+     16  0.06250  6.33e-15    16    2.10e-06   8.61e-07   1.33e-15   1.17e-05   2.58
+     24  0.04167  1.34e-13    24    9.85e-06   4.20e-06   1.11e-15   3.08e-06   3.28
+   => Green<=9.8e-06 (curved-panel consistency)  polyE<=1.3e-15  best-approx ~ p+1
+
+  degree p=3 (formal best-approx p+1=4)
+   N_el   h        gamma_min  #small  Green_x    Green_y    polyE      L2err      order
+      8  0.12500  1.10e-22    10    3.04e-09   1.20e-09   1.89e-15   5.06e-06   --0.00
+     12  0.08333  5.18e-14    18    3.82e-08   1.65e-08   4.00e-15   1.07e-06   3.82
+     16  0.06250  2.93e-21    24    4.32e-08   1.84e-08   3.22e-15   4.42e-07   3.08
+     24  0.04167  7.76e-20    38    2.17e-07   9.32e-08   6.00e-15   8.14e-08   4.17
+   => Green<=2.2e-07 (curved-panel consistency)  polyE<=6.0e-15  best-approx ~ p+1
+
+  degree p=4 (formal best-approx p+1=5)
+   N_el   h        gamma_min  #small  Green_x    Green_y    polyE      L2err      order
+      8  0.12500  4.02e-10    12    9.99e-12   3.92e-12   3.11e-15   1.73e-07   --0.00
+     12  0.08333  2.57e-18    22    1.51e-09   7.16e-10   8.66e-15   2.87e-08   4.42
+     16  0.06250  2.62e-14    28    1.60e-09   6.74e-10   2.40e-14   1.42e-08   2.45
+     24  0.04167  2.14e-15    44    2.61e-09   1.22e-09   1.73e-14   1.37e-09   5.77
+   => Green<=2.6e-09 (curved-panel consistency)  polyE<=2.4e-14  best-approx ~ p+1
+
+Done.
+
+==== mms_hill3d ====
+=================================================================
+ MMS gate: 3D periodic-hill operator layer (hill3d.h)
+ 2D-curved cut (x-y) (x) periodic z ; best-approx order p+1
+=================================================================
+
+  degree p=2 (formal p+1=3), nz=2*N_xy (z refined with x-y)
+   N_xy   nz   h        nr2    L2err       order
+      8   16  0.12500    92   1.353e-03   --0.00
+     12   24  0.08333   180   7.897e-05   7.01
+     16   32  0.06250   298   1.738e-04   -2.74
+   => 3D hill best-approx order ~ p+1 (curved-cut dominated; z spectral)
+
+  degree p=3 (formal p+1=4), nz=2*N_xy (z refined with x-y)
+   N_xy   nz   h        nr2    L2err       order
+      8   16  0.12500   111   2.293e-04   --0.00
+     12   24  0.08333   203   3.975e-05   4.32
+     16   32  0.06250   327   1.199e-05   4.17
+   => 3D hill best-approx order ~ p+1 (curved-cut dominated; z spectral)
+
+  degree p=4 (formal p+1=5), nz=2*N_xy (z refined with x-y)
+   N_xy   nz   h        nr2    L2err       order
+      8   16  0.12500   130   2.735e-05   --0.00
+     12   24  0.08333   230   3.292e-06   5.22
+     16   32  0.06250   360   1.868e-06   1.97
+   => 3D hill best-approx order ~ p+1 (curved-cut dominated; z spectral)
+
+  (2) L2 projection via sample/load machinery + conservation primitive
+   p=2
+     ne= 8 nz= 16  proj-L2=1.370e-04  --0.00   max|Q.1|=8.6e-17
+     ne=12 nz= 24  proj-L2=4.101e-05  2.97   max|Q.1|=2.4e-17
+     ne=16 nz= 32  proj-L2=1.984e-05  2.52   max|Q.1|=2.3e-17
+     => projection order ~ p+1 ; max|Q.1|<=8.6e-17 (roundoff: derivative of a constant)
+   p=3
+     ne= 8 nz= 16  proj-L2=9.010e-06  --0.00   max|Q.1|=7.1e-17
+     ne=12 nz= 24  proj-L2=1.877e-06  3.87   max|Q.1|=3.6e-17
+     ne=16 nz= 32  proj-L2=6.463e-07  3.71   max|Q.1|=1.7e-17
+     => projection order ~ p+1 ; max|Q.1|<=7.1e-17 (roundoff: derivative of a constant)
+   p=4
+     ne= 8 nz= 16  proj-L2=5.337e-07  --0.00   max|Q.1|=2.0e-16
+     ne=12 nz= 24  proj-L2=8.457e-08  4.54   max|Q.1|=7.4e-17
+     ne=16 nz= 32  proj-L2=4.813e-08  1.96   max|Q.1|=1.1e-16
+     => projection order ~ p+1 ; max|Q.1|<=2.0e-16 (roundoff: derivative of a constant)
+  (3) Conservative compressible RHS on the hill
+     p=2 ne=10  pulse mass-rate=0.00e+00  energy-rate=0.00e+00  inviscid KE-rate(rel)=1.22e-16
+     p=3 ne=10  pulse mass-rate=0.00e+00  energy-rate=0.00e+00  inviscid KE-rate(rel)=3.50e-16
+     => interior conservation exact; inviscid KE-production at the ROUNDOFF floor (wall-vanishing velocity).
+  (4) Energy-conserving skew convection: KE injection u^T M C(w)u
+     p=2 ne=10  KE-injection(rel)=1.41e-15
+     p=3 ne=10  KE-injection(rel)=8.19e-15
+     => skew convection injects no interior KE (roundoff): energy-conserving advection on the curved wall.
+Done.
+
+==== mms_hill_metric ====
+=================================================================
+ MMS gate: PHYSICAL Lx:Ly metric on the hill operators
+ physical_op must equal chain-rule scaling of the verified unit op
+=================================================================
+
+  ne= 6 p=2 nr2=  60 : M2 2.88e-15  Qx2 3.40e-15  Qy2 4.29e-15   PASS
+  ne= 6 p=3 nr2=  73 : M2 5.82e-15  Qx2 3.91e-15  Qy2 5.71e-15   PASS
+  ne= 6 p=4 nr2=  90 : M2 6.06e-15  Qx2 5.19e-15  Qy2 5.95e-15   PASS
+  ne= 8 p=2 nr2=  92 : M2 5.13e-15  Qx2 6.66e-15  Qy2 8.22e-15   PASS
+  ne= 8 p=3 nr2= 111 : M2 5.54e-15  Qx2 6.53e-15  Qy2 5.92e-15   PASS
+  ne= 8 p=4 nr2= 130 : M2 6.84e-15  Qx2 5.08e-15  Qy2 1.01e-14   PASS
+  ne=12 p=2 nr2= 180 : M2 6.49e-15  Qx2 3.84e-15  Qy2 6.69e-15   PASS
+  ne=12 p=3 nr2= 203 : M2 8.80e-15  Qx2 5.34e-15  Qy2 5.87e-15   PASS
+  ne=12 p=4 nr2= 230 : M2 9.91e-15  Qx2 5.20e-15  Qy2 8.71e-15   PASS
+
+ => physical metric VERIFIED to roundoff (chain-rule scaling of verified unit operators)

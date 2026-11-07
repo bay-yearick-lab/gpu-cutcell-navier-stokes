@@ -1,0 +1,23 @@
+# Bay-Yearick Lab figure style
+figure.facecolor: white
+axes.facecolor: white
+axes.edgecolor: 1B2A41
+axes.labelcolor: 1B2A41
+axes.titleweight: bold
+axes.titlesize: 15
+axes.labelsize: 13
+axes.spines.top: False
+axes.spines.right: False
+axes.grid: True
+grid.color: E6E9EF
+grid.linewidth: 0.8
+xtick.color: 1B2A41
+ytick.color: 1B2A41
+xtick.labelsize: 11
+ytick.labelsize: 11
+font.family: DejaVu Sans
+legend.frameon: False
+legend.fontsize: 11
+axes.prop_cycle: cycler('color', ['0F9D8A', 'F2A541', '3D5A80', 'E07A5F', '8D99AE', '1B2A41'])
+savefig.dpi: 200
+savefig.bbox: tight

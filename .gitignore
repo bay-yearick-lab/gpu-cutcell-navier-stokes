@@ -1,0 +1,20 @@
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+*.log
+*.out
+*.bak
+*.bak-*
+.DS_Store
+
+# Build output
+cpp/bin/
+cpp/gpu/ckpt/
+
+# Generated run output (the committed result files live in code/results/)
+cpp/data/*/
+code/data/
+figures/
+tools/_cache/
+code/results/*_quick*

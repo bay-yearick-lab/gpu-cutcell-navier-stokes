@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "gpu-cutcell-navier-stokes: high-order B-spline cut-cell Navier-Stokes with GPU sparse solvers and CUDA kernels"
+authors:
+  - family-names: Bay
+    given-names: Yong Yi
+  - family-names: Yearick
+    given-names: Kathleen A.
+license: MIT
+version: 0.1.0
+date-released: 2026-11-07
+keywords:
+  - cut-cell
+  - summation-by-parts
+  - b-splines
+  - navier-stokes
+  - cuda
+  - preconditioned-conjugate-gradient
+preferred-citation:
+  type: unpublished
+  title: "A Small Cut Cell Must Not Own a Coordinate: High-Order Summation-by-Parts B-spline Methods for Sharp Embedded Boundaries without a Tuned Small-Cell Penalty"
+  authors:
+    - family-names: Bay
+      given-names: Yong Yi
+    - family-names: Yearick
+      given-names: Kathleen A.
+  year: 2026
+  notes: "In preparation"
