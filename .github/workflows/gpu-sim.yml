@@ -1,0 +1,69 @@
+name: GPU simulator (H100)
+
+# Optional, non-required check. The hosted runners have no GPU, so this builds the CUDA kernels
+# and runs the same per-kernel comparison against the CPU reference as `make gpu-test`, on a
+# simulated NVIDIA H100 (https://github.com/pantheongpu/pantheonsim). A simulator cannot
+# reproduce hardware-specific behavior or timing, so it complements runs on real GPUs.
+on:
+  pull_request:
+    paths:
+      - 'cpp/**'
+      - '.github/workflows/gpu-sim.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: gpu-sim-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  gpu-kernels:
+    name: GPU kernels vs CPU reference (CUDA 13.0, simulated H100)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0
+        with:
+          persist-credentials: false
+
+      - name: Set up the simulated GPU and CUDA toolkit
+        uses: pantheongpu/setup-pantheonsim@deff5781e8adfd83dec98dd5242dcbc96a564773  # v0.1.10
+        with:
+          gpu: nvidia/h100
+          cuda-toolkit: '13.0'
+          # the binaries link the toolkit's own cuBLAS and cuFFT
+          library-path: 'false'
+
+      # compute_90 embeds PTX only, which the simulator runs; it also needs a shared CUDA runtime.
+      # ARCH is only used for -arch=$(ARCH) in the Makefile.
+      - name: Build the kernel checks
+        working-directory: cpp/gpu
+        run: |
+          make -j3 ARCH='compute_90 --cudart shared' \
+            ../bin/gpu_apply2d ../bin/gpu_sample ../bin/gpu_load ../bin/gpu_fastdiag \
+            ../bin/gpu_grad ../bin/gpu_advect ../bin/gpu_dft ../bin/gpu_solve \
+            ../bin/gpu_skewfull ../bin/gpu_step ../bin/dns_gpu ../bin/gpu_run
+
+      # Same loop as `make gpu-test` (check_gpu.sh fails on MISMATCH/FAIL or a relative error
+      # above TOL=1e-8, which is unchanged), run under the simulator. The only change is the
+      # size of dns_gpu, a 32^3 periodic cube instead of the default 128^3, to keep the
+      # simulated run short. The simulator can print a VirtualGPU error and still exit 0, so
+      # the output is checked for that as well.
+      - name: Run each kernel against the CPU reference
+        working-directory: cpp/gpu
+        run: |
+          set -eo pipefail
+          for b in gpu_apply2d gpu_sample gpu_load gpu_fastdiag gpu_grad gpu_advect \
+                   gpu_dft gpu_solve gpu_skewfull gpu_step; do
+            echo "==== $b ===="
+            vgpu run ../bin/$b 2>&1 | tee "$RUNNER_TEMP/$b.log" | ./check_gpu.sh 1e-8
+          done
+          echo "==== dns_gpu (32^3) ===="
+          vgpu run ../bin/dns_gpu 32 4 2>&1 | tee "$RUNNER_TEMP/dns_gpu.log" | ./check_gpu.sh 1e-8
+          echo "==== gpu_run (8 elements, 12 steps) ===="
+          vgpu run ../bin/gpu_run 8 12 1 2>&1 | tee "$RUNNER_TEMP/gpu_run.log" | ./check_gpu.sh 1e-8
+          if grep -i -E 'VirtualGPU error|no CUDA-capable device|no device|skipp' "$RUNNER_TEMP"/*.log; then
+            exit 1
+          fi
